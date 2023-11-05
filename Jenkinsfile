@@ -48,14 +48,18 @@ pipeline{
     agent any
     stages{
         stage("build"){
+            steps{
             echo'building application....'
             script{
                 def test=2+2>3?'corrct':'not coorect'
                 echo test
             }
+            }
         }
         stage("test"){
-            echo'testing application....'
+            steps{
+                echo'testing application....'
+            }
         }
     }
 }
