@@ -1,5 +1,5 @@
 def gv
-
+/*
 pipeline {
     agent any
     parameters {
@@ -41,4 +41,21 @@ pipeline {
             }
         }
     }   
+}
+*/
+
+pipeline{
+    agent any
+    stages{
+        stage("build"){
+            echo'building application....'
+            script{
+                def test=2+2>3?'corrct':'not coorect'
+                echo test
+            }
+        }
+        stage("test"){
+            echo'testing application....'
+        }
+    }
 }
