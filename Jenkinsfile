@@ -1,5 +1,8 @@
 pipeline {
-    agengt any
+    agent any
+    tools{
+        maven '3.9.5'
+    }
     stages{
         stage('Build war'){
             steps{
