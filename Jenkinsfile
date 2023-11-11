@@ -7,7 +7,7 @@ pipeline {
         stage('Build war'){
             steps{
                 script{
-                    git url: GIT_REPO
+                    git url= GIT_REPO
                     sh 'mvn clean package'
                 }
             }
