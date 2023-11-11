@@ -1,13 +1,13 @@
 pipeline {
     agent any
-    environment{
-        GIT_REPO='https://github.com/NikhilRao222/containerizing-application.git'
-    }
+    // environment{
+    //     GIT_REPO='https://github.com/NikhilRao222/containerizing-application.git'
+    // }
     stages{
         stage('Build war'){
             steps{
                 script{
-                    git url= GIT_REPO
+                    // git url= GIT_REPO
                     sh 'mvn clean package'
                 }
             }
