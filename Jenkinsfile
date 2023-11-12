@@ -9,7 +9,7 @@ pipeline {
             steps{
                 script{
                     // git url= GIT_REPO
-                    sh 'cd src/main/webapp/META-INF/maven/com.mycompany/mavenproject2'
+                    // sh 'cd src/main/webapp/META-INF/maven/com.mycompany/mavenproject2'
                     sh 'mvn clean package'
                 }
             }
