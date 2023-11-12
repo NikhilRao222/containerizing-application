@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment{
         dockerhub_credentials=credentials('dockerhub_id')
+        docker_img_name='nbillakanti/my-web-app'
         TIMESTAMP = new Date().format('yyyyMMdd-HHmmss')
     }
     stages{
@@ -18,7 +19,7 @@ pipeline {
             steps{
                 script{
                     
-                    def imageBuild="${'nbillakanti/my-web-app'}:${TIMESTAMP}"
+                    def imageBuild="${docker_img_name}:${TIMESTAMP}"
                     sh "docker build -t ${imageBuild} ."
                     
                 }
