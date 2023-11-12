@@ -14,16 +14,16 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker Image'){
-            steps{
-                script{
-                    docker.withRegistry('https://registry.hub.docker.com','dcokerhub_credentials'){
-                        def imageBuilt=docker.build("nbillakanti/my-web-app:${TIMESTAMP}")
-                        imageBuilt.push()
-                    }
-                }
-            }
-        }
+        // stage('Build Docker Image'){
+        //     steps{
+        //         script{
+        //             docker.withRegistry('https://registry.hub.docker.com','dcokerhub_credentials'){
+        //                 def imageBuilt=docker.build("nbillakanti/my-web-app:${TIMESTAMP}")
+        //                 imageBuilt.push()
+        //             }
+        //         }
+        //     }
+        // }
         stage('Push Docker Image'){
             steps{
                 script{
