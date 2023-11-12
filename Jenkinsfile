@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        docker { image 'nbillakanti/my-web-app:latest' }
-    }
+    agent any
     environment{
         dockerhub_credentials=credentials('dockerhub_id')
         docker_img_name='nbillakanti/my-web-app'
