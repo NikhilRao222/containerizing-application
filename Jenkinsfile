@@ -1,8 +1,9 @@
 pipeline {
     agent any
-    // environment{
-    //     GIT_REPO='https://github.com/NikhilRao222/containerizing-application.git'
-    // }
+    environment{
+        dockerhub_credentials=credentials('dockerhub_id')
+        TIMESTAMP = new Date().format('yyyyMMdd-HHmmss')
+    }
     stages{
         stage('Build war'){
             steps{
@@ -16,7 +17,10 @@ pipeline {
         stage('Build Docker Image'){
             steps{
                 script{
-                    echo 'docker image built....'
+                    docker.withRegistry('https://registry.hub.docker.com','dcokerhub_credentials'){
+                        def imageBuilt=docker.build("nbillakanti/my-web-app:${TIMESTAMP}")
+                        imageBuilt.push()
+                    }
                 }
             }
         }
