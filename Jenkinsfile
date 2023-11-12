@@ -18,7 +18,7 @@ pipeline {
             steps{
                 script{
                     
-                    def imageBuild="${nbillakanti/my-web-app}:${TIMESTAMP}"
+                    def imageBuild="${'nbillakanti/my-web-app'}:${TIMESTAMP}"
                     sh "docker build -t ${imageBuild} ."
                     
                 }
